@@ -12,6 +12,11 @@
             function pluginGetString() {
                 alert( easyPlugin.getString() );
             }
+            function pluginShow() {
+                easyPlugin.show( "MSC5 sample native plugin with CALLBACK function", function( bt ) {
+                    alert( bt );
+                } );
+            }
         </script>
         <link rel="stylesheet" href="./css/common.css" type="text/css" charset="utf-8"/>
     </head>
@@ -23,6 +28,7 @@
         <div id="dcontent" class="dcontent">
             <br/>
             <div class="button" onclick="pluginGetString()">Invoke easyPlugin.getString()</div>
+            <div class="button" onclick="pluginShow()">Invoke easyPlugin.show()</div>
             <br/>
         </div>
     </body>

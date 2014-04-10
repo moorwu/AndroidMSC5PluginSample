@@ -60,15 +60,59 @@ public class EasyPluginSample implements IFeature{
     @Override
  
     public String execute(final IWebview pWebView, final String func_name, final String[] pArgs) {
-        //getString是一个同步的请求
+        
+    	Context context=pWebView.getContext();
+    	
+    	//getString是一个同步的请求
     	 
         if("getString".equals(func_name)){
    
-         //仅仅只是单纯的返回一个字符串
+        	//仅仅只是单纯的返回一个字符串
    
-         return JSUtil.wrapJsVar("This is a sample Sync plugin. Just say Hello from NATIVE plugin code! ",true);
+        	return JSUtil.wrapJsVar("This is a sample Sync plugin. Just say Hello from NATIVE plugin code! ",true);
    
          }
+        //show是一个包含了callback调用的异步请求
+        else if ( "show".equals(func_name) ) {
+         
+            final AlertDialog dialog = new AlertDialog.Builder(context).create();
+         
+            dialog.setCanceledOnTouchOutside(false);
+         
+            String msg = "MSC5 sample native plugin with CALLBACK function";
+         
+            if ( pArgs.length > 0 ) {
+         
+                msg = pArgs[0];
+         
+            }
+         
+            DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {          
+         
+                  public void onClick( DialogInterface dlg, int which ) {
+         
+                       dlg.dismiss();
+         
+                        if ( pArgs.length > 1 ) {
+         
+                            String cbId = pArgs[1];
+                            JSUtil.execCallback(pWebView, cbId, (which==AlertDialog.BUTTON_POSITIVE)?"OK clicked":"Cancel clicked", JSUtil.OK, false, false);
+         
+                         }
+         
+                  }
+         
+            };
+         
+            dialog.setMessage(msg);
+         
+            dialog.setButton(AlertDialog.BUTTON_POSITIVE, AndroidResources.getString(android.R.string.ok), listener);
+         
+                dialog.setButton(AlertDialog.BUTTON_NEGATIVE, AndroidResources.getString(android.R.string.cancel), listener);
+         
+            dialog.show();
+         
+        }
          return null;
     }
  
