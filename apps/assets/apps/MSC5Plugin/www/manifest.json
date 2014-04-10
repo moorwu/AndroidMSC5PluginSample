@@ -102,6 +102,9 @@
         },
         "Statistic": {
             "description": "管理统计插件"
+        },
+        "HelloPlugin": {
+            "description": "MSC5 Android插件开发样例"
         }
     },
     "plus": {

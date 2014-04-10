@@ -40,6 +40,7 @@
 		</feature>
 		<feature name="Statistic" value="io.dcloud.feature.statistics.StatisticsFeatureImpl"></feature>
 		<!-- Plugins -->
+		<feature name="HelloPlugin" value="com.dheaven.exmaple.msc5plugin.EasyPluginSample"></feature>
 	</features>	
 
 	<services>
