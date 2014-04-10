@@ -105,6 +105,9 @@
         },
         "HelloPlugin": {
             "description": "MSC5 Android插件开发样例"
+        },
+        "uiplugin": {
+            "description": "MSC5 UI Plugin Demo"
         }
     },
     "plus": {
