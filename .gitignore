@@ -1,0 +1,14 @@
+
+apps/.classpath
+
+apps/.project
+
+apps/.settings/org.eclipse.core.resources.prefs
+
+apps/.settings/org.eclipse.jdt.core.prefs
+
+apps/bin/MainActivity.apk
+
+apps/bin/classes.dex
+
+apps/bin/AndroidManifest.xml
